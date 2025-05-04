@@ -29,9 +29,13 @@ jobs:
         sed -i "s/YOUR_CLIENT_ID/$CLIENT_ID/g" scraper.py
         sed -i "s/YOUR_CLIENT_SECRET/$CLIENT_SECRET/g" scraper.py
         python scraper.py
-
+        
+    - name: Verify CSV Exists
+      run: ls -la hot_videos.csv
+      
     - name: Upload Results
-      uses: actions/upload-artifact@v2
+      uses: uses: actions/upload-artifact@v3
       with:
         name: reddit-videos
-        path: hot_videos.csv
+        path: 
+          hot_videos.csv
